@@ -1,11 +1,14 @@
 package com.iradspm.springbootcrudmysql.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     private String fname;
     private String lname;
@@ -15,9 +18,8 @@ public class User {
         super();
     }
 
-    public User(int id, String fname, String lname, String email) {
+    public User(String fname, String lname, String email) {
         super();
-        Id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
